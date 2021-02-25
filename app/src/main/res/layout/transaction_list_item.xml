@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View" />
         <variable
             name="data"
-            type="nz.co.asb.ui.TransactionListItemBindingData"/>
+            type="nz.co.asb.ui.TransactionUiBindingData"/>
     </data>
 
     <androidx.cardview.widget.CardView

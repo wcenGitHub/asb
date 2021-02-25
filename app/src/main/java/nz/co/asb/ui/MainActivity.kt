@@ -1,5 +1,6 @@
 package nz.co.asb.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -48,6 +49,9 @@ class MainActivity : AppCompatActivity(), TransactionListAdapter.TransactionSele
     }
 
     override fun onTransactionSelected(transaction: Transaction) {
-
+        val intent = Intent(this@MainActivity, TransactionDetailActivity::class.java)
+        intent.putExtra(TransactionDetailActivity.TRANSACTION_ID_EXTRA_KEY, transaction.id)
+        startActivity(intent)
+        overridePendingTransition(R.anim.activity_open_translate, R.anim.stay)
     }
 }

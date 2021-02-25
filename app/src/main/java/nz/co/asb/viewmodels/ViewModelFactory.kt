@@ -10,6 +10,9 @@ class ViewModelFactory(var app: App) : ViewModelProvider.Factory {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(app) as T
             }
+            modelClass.isAssignableFrom(TransactionDetailViewModel::class.java) -> {
+                TransactionDetailViewModel(app) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }
     }

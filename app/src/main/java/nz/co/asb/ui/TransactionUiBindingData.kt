@@ -8,10 +8,14 @@ import nz.co.asb.model.Transaction
 import nz.co.asb.toCurrencyFormattedString
 import java.util.*
 
-class TransactionListItemBindingData(
+class TransactionUiBindingData(
     private val transaction: Transaction,
     private val context: Context
 ) {
+
+    val transactionIdDisplayString: String get() {
+        return context.getString(R.string.transactionIdFormat, transaction.id)
+    }
 
     val summary: String get() {
         return transaction.summary

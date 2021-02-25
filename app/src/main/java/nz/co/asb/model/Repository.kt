@@ -22,4 +22,8 @@ class Repository @Inject constructor() {
     fun orderTransactionList(transactionList: List<Transaction>): List<Transaction> {
         return transactionList.sortedByDescending { transaction -> transaction.transactionDate }
     }
+
+    fun getTransactionById(transactionId: String): Transaction? {
+        return transactionList.find { transaction -> transaction.id == transactionId }
+    }
 }

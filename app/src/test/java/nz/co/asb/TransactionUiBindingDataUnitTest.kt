@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.test.core.app.ApplicationProvider
 import nz.co.asb.model.Transaction
-import nz.co.asb.ui.TransactionListItemBindingData
+import nz.co.asb.ui.TransactionUiBindingData
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
 import org.junit.Assert
@@ -14,7 +14,7 @@ import org.robolectric.RobolectricTestRunner
 import java.util.*
 
 @RunWith(RobolectricTestRunner::class)
-class TransactionListItemBindingDataUnitTest {
+class TransactionUiBindingDataUnitTest {
 
     val context = ApplicationProvider.getApplicationContext<Context>()
 
@@ -30,7 +30,7 @@ class TransactionListItemBindingDataUnitTest {
             0.0
         )
 
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         assert(
             data.summary == transaction.summary &&
@@ -49,7 +49,7 @@ class TransactionListItemBindingDataUnitTest {
             1.0,
             0.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         val dateDisplayFormat: DateTimeFormatter = DateTimeFormat.forPattern("dd MMM yyyy")
 
@@ -66,7 +66,7 @@ class TransactionListItemBindingDataUnitTest {
             0.0,
             1.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         Assert.assertNull(data.gstDisplayString())
     }
@@ -81,7 +81,7 @@ class TransactionListItemBindingDataUnitTest {
             1.0,
             0.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         Assert.assertNotNull(data.gstDisplayString())
 
@@ -103,7 +103,7 @@ class TransactionListItemBindingDataUnitTest {
             1.0,
             0.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         val locale = Locale(Locale.getDefault().language, "NZ")
 
@@ -124,7 +124,7 @@ class TransactionListItemBindingDataUnitTest {
             0.0,
             1.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         val locale = Locale(Locale.getDefault().language, "NZ")
 
@@ -145,7 +145,7 @@ class TransactionListItemBindingDataUnitTest {
             0.0,
             1.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
 
         assert(data.gstVisibility() == View.GONE)
@@ -161,7 +161,7 @@ class TransactionListItemBindingDataUnitTest {
             1.0,
             0.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         assert(data.gstVisibility() == View.VISIBLE)
     }
@@ -176,7 +176,7 @@ class TransactionListItemBindingDataUnitTest {
             0.0,
             1.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         assert(data.amountTextColor() == context.getColor(R.color.green))
     }
@@ -191,7 +191,7 @@ class TransactionListItemBindingDataUnitTest {
             1.0,
             0.0
         )
-        val data = TransactionListItemBindingData(transaction, context)
+        val data = TransactionUiBindingData(transaction, context)
 
         assert(data.amountTextColor() == context.getColor(R.color.red))
     }

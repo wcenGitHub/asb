@@ -33,7 +33,7 @@ class TransactionListAdapter(var transactionList: List<Transaction>, private val
 
     class ViewHolder(private val binding: TransactionListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(transaction: Transaction) {
-            binding.data = TransactionListItemBindingData(transaction, binding.root.context)
+            binding.data = TransactionUiBindingData(transaction, binding.root.context)
             binding.executePendingBindings()
         }
     }
