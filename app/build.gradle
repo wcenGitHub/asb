@@ -14,6 +14,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField 'boolean', 'MOCK_DATA_ENABLED', 'false'
+        buildConfigField 'boolean', 'LOGCAT_ENABLED', 'false'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,6 +27,19 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "mode"
+    productFlavors {
+        mock {
+            dimension "mode"
+            buildConfigField 'boolean', 'MOCK_DATA_ENABLED', 'true'
+        }
+
+        backend {
+            dimension "mode"
+            buildConfigField 'boolean', 'MOCK_DATA_ENABLED', 'false'
         }
     }
 

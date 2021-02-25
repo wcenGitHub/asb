@@ -36,6 +36,10 @@ class RetrofitClient @Inject constructor(private val app: App) {
             connectTimeout(Constants.CONNECT_TIMEOUT, TimeUnit.SECONDS)
             readTimeout(Constants.READ_TIMEOUT, TimeUnit.SECONDS)
 
+            if (BuildConfig.MOCK_DATA_ENABLED) {
+                addInterceptor(MockingInterceptor())
+            }
+
             if (BuildConfig.LOGCAT_ENABLED) {
                 interceptors().add(getLoggingInterceptor())
             }
