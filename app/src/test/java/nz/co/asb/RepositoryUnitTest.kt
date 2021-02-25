@@ -1,27 +1,14 @@
 package nz.co.asb
 
-import net.danlew.android.joda.JodaTimeAndroid
-import nz.co.asb.di.AppSessionComponent
-import nz.co.asb.di.AppSingletonComponent
 import nz.co.asb.model.Repository
 import nz.co.asb.model.Transaction
-import nz.co.asb.viewmodels.MainViewModel
-import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import org.junit.Assert
-import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 
-class UnitTest {
-    
+class RepositoryUnitTest {
+
     @Test
     fun test_repository_sortTransactionOrder() {
         val dateFormat = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZZ")
@@ -44,7 +31,9 @@ class UnitTest {
         val repo = Repository()
 
         val sortedList = repo.orderTransactionList(listOf(transaction1, transaction2))
-        Assert.assertTrue(sortedList[0] == transaction2
-                && sortedList[1] == transaction1)
+        Assert.assertTrue(
+            sortedList[0] == transaction2
+                    && sortedList[1] == transaction1
+        )
     }
 }

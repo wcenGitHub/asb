@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ASB</string>
+    <string name="errorMessage">Oops… Somethings went wrong.</string>
+    <string name="debitAmountFormat">-%1$s</string>
+    <string name="creditAmountFormat">+%1$s</string>
+    <string name="gstAmountFormat">GST: -%1$s</string>
 </resources>

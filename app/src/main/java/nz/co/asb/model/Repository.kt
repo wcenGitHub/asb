@@ -10,13 +10,13 @@ class Repository @Inject constructor() {
     @Inject
     lateinit var dataSource: DataSource
 
-    var posts: MutableList<Transaction> = mutableListOf()
+    var transactionList: MutableList<Transaction> = mutableListOf()
 
     val transactionListLiveData = MutableLiveData<List<Transaction>>()
 
     suspend fun fetchTransactions() {
-        posts = dataSource.fetchTransactions().toMutableList()
-        transactionListLiveData.value = orderTransactionList(posts)
+        transactionList = dataSource.fetchTransactions().toMutableList()
+        transactionListLiveData.value = orderTransactionList(transactionList)
     }
 
     fun orderTransactionList(transactionList: List<Transaction>): List<Transaction> {
