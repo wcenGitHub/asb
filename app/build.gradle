@@ -18,6 +18,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField 'boolean', 'LOGCAT_ENABLED', 'true'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -69,5 +73,10 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout"
 
-    testImplementation 'com.nhaarman:mockito-kotlin-kt1.1:1.5.0'
+    implementation "net.danlew:android.joda:$joda_version"
+
+
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+    testImplementation 'joda-time:joda-time:2.10.9'
 }

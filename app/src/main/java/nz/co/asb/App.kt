@@ -4,10 +4,11 @@ import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import net.danlew.android.joda.JodaTimeAndroid
 import nz.co.asb.di.*
 import javax.inject.Inject
 
-class App : Application(), HasAndroidInjector {
+open class App : Application(), HasAndroidInjector {
 
     companion object {
         lateinit var appSingletonComponent: AppSingletonComponent
@@ -22,6 +23,7 @@ class App : Application(), HasAndroidInjector {
     override fun onCreate() {
         super.onCreate()
 
+        JodaTimeAndroid.init(this)
         initDagger()
     }
 

@@ -1,7 +1,7 @@
 package nz.co.asb.network
 
-import androidx.viewbinding.BuildConfig
 import nz.co.asb.App
+import nz.co.asb.BuildConfig
 import nz.co.asb.Constants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -36,7 +36,7 @@ class RetrofitClient @Inject constructor(private val app: App) {
             connectTimeout(Constants.CONNECT_TIMEOUT, TimeUnit.SECONDS)
             readTimeout(Constants.READ_TIMEOUT, TimeUnit.SECONDS)
 
-            if (BuildConfig.DEBUG) {
+            if (BuildConfig.LOGCAT_ENABLED) {
                 interceptors().add(getLoggingInterceptor())
             }
         }.build()
